@@ -2,7 +2,7 @@
 #include <cstring>
 #include <algorithm>
 
-namespace lin 
+namespace lal 
 {
 	template<typename T>
 	struct Vec3 {
@@ -11,10 +11,20 @@ namespace lin
 		T z;
 	};
 
+	using Vec3f = Vec3<float>;
+	using Vec3d = Vec3<double>;
+
 	template<typename T>
 	class Mat33
 	{
 	public:
+
+		static Mat33 Identity(){
+			Mat33 r{};
+			r.identity();
+			return r;
+		}
+
 		Mat33() { zero(); }
 
 		Mat33(Vec3<T> c0, Vec3<T> c1, Vec3<T> c2) {
@@ -151,6 +161,9 @@ namespace lin
 		Vec3<T> atRow(int row) const {
 			assertRowBounds(row);
 			return {_e[xcoef][row], _e[ycoef][row], _e[zcoef][row]};
+		}
+
+		bool operator==(){
 		}
 
 	private:
