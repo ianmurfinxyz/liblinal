@@ -4,7 +4,7 @@ project(liblinal CXX)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_EXPORT_COMPILE_COMMANDS 1)
 
-set(LINAL_TEST_SOURCE test/test.cc)
+set(LINAL_TEST_SOURCE test/test_float_cmp.cc)
 
 include(conanbuildinfo.cmake)
 conan_basic_setup(TARGETS)
